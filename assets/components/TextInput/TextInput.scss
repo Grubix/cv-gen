@@ -1,0 +1,104 @@
+@import '@scss/Bootstrap';
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus {
+    transition: background-color 9999s !important;
+}
+
+.container {
+    @include flex(stretch);
+    flex-direction: column;
+    position: relative;
+
+    input, textarea {
+        width: 100%;
+        position: relative;
+        font-family: inherit;
+        font-size: inherit;
+        height: 40px;
+        border-radius: 4px;
+        border: 2px solid #E5E8EC;
+        padding: 8px 10px 8px 10px;
+        z-index: 1;
+        background-color: rgba(0,0,0,0);
+        transition: all 200ms cubic-bezier(0.0, 0, 0.2, 1);
+    }
+
+    textarea {
+        float: left;
+        height: 3 * 40px;
+        min-height: 2 * 40px;
+        transition: all 200ms cubic-bezier(0.0, 0, 0.2, 1), width 0s, height 0s;
+    }
+
+    input, textarea {
+        &:focus {
+            outline: none;
+            border: 2px solid $color-secondary;
+            box-shadow: 0px 0px 5px rgba(163, 98, 234, 0.5);
+        }
+    }
+
+    textarea + .placeholder {
+        transform: none;
+        top: 8px;
+    }
+
+    textarea + .placeholderActive {
+        top: 0;
+        transform: translateY(-50%);
+    }
+
+    &.error {
+        input, textarea {
+            border: 2px solid $color-error;
+            box-shadow: 0px 0px 5px rgba(176, 0, 32, 0.5);
+        }
+
+        .placeholder {
+            color: $color-error;
+        }
+    }
+}
+
+.wrapper {
+    position: relative;
+}
+
+.placeholder {
+    position: absolute;
+    z-index: 0;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;
+    color: #949799;
+    transition: all .2s;
+    box-shadow: 0px 0px 2px 1px #fff;
+}
+
+.placeholderActive {
+    font-size: 11.5px;
+    color: $color-secondary;
+    font-weight: 500;
+    background-color: #fff;
+    left: 7px;
+    top: 0px !important;
+    z-index: 2;
+}
+
+.placeholderFocus {
+    //TODO:
+}
+
+.errorLabel {
+    margin-top: 5px;
+    color: $color-error;
+    font-size: 12px;
+    text-align: right;
+}
