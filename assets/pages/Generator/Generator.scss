@@ -4,14 +4,22 @@ $main-width: 650px;
 
 .main {
     position: fixed;
-    top: 25px;
-    left: 25px;
-    bottom: 25px;
-    width: 650px;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 0;
     background-color: $color-surface;
     box-shadow: 0 0 40px rgba(125, 139, 153, 0.2);
-    border-radius: 10px;
+    border-radius: 8px 8px 0 0;
     overflow: hidden;
+
+    @include respond-to('md') {
+        top: 25px;
+        left: 25px;
+        right: 25px;
+        width: 650px;
+        right: auto;
+    }
 
     .wrapper {
         @include removeScrollbar;
@@ -91,8 +99,7 @@ $main-width: 650px;
 }
 
 .banner {
-    @include flex;
-
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
@@ -103,6 +110,10 @@ $main-width: 650px;
     user-select: none;
     white-space: nowrap;
     overflow: hidden;
+
+    @include respond-to('xl') {
+        @include flex;
+    }
 
     .link:hover {
         color: $color-secondary;

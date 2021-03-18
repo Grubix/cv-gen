@@ -16,7 +16,7 @@ const Generator = ({ setToken }) => {
         email: 'krypi23@gmail.com',
         street: 'Nagietkowa 28',
         zipCode: '62-030 Luboń',
-        gdpr: 'Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO).',
+        gdpr: 'Niniejszym wyrażam zgodę na przetwarzanie moich danych osobowych zawartych w dokumentach rekrutacyjnych dla celów naboru (zgodnie z ustawą o ochronie danych osobowych z 29 sierpnia 1997 r., Dz. U. nr 133, poz. 883).',
         github: 'github.com/Grubix'
     });
 
@@ -54,7 +54,7 @@ const Generator = ({ setToken }) => {
                 </div>
             </main>
             <div className={styles.banner}>
-                <b>CV Generator</b>
+                <b>CVgen</b>
                 &nbsp;by&nbsp;
                 <a href="https://github.com/kborowicz" className={styles.link} target="_blank">kborowicz</a>
             </div>

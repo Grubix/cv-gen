@@ -20,8 +20,8 @@ const BaseData = props => {
     return (
         <div className={styles.data_group}>
             <div className={styles['cv-image']}>
-                <img src={xd} className={styles['cv-image__image']} id="js-user-image" />
-                <input type="file" id="js-image-upload-input" accept="image/*" className={styles['cv-image__select']} />
+                <img src={xd} className={styles['cv-image__image']}/>
+                <input type="file" accept="image/*" className={styles['cv-image__select']} />
             </div>
             <div className={styles.row + ' ' + styles['row--right'] + ' ' + styles['row--1-3']} style={{ marginTop: 0 }}>
                 <TextInput
@@ -59,7 +59,6 @@ const BaseData = props => {
                     type="email"
                     value={email}
                     onChange={onDataChange}
-                    errorMessage="email is invalid"
                 />
             </div>
             <div className={styles.row + ' ' + styles['row--right'] + ' ' + styles['row--1-3']}>
