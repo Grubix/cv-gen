@@ -10,8 +10,7 @@ const TextInput = props => {
         onChange,
         onFocus,
         onBlur,
-        maxLength,
-        spellcheck = false,
+        spellCheck = false,
         multiline = false,
         ...inputProps
     } = props;
@@ -20,10 +19,6 @@ const TextInput = props => {
     const [valueChanged, setValueChanged] = useState(false);
 
     const handleOnChange = e => {
-        if (e.target.value.length - 1 >= maxLength) {
-            return;
-        }
-
         setValueChanged(true);
         if (onChange) onChange(e);
     };
@@ -31,53 +26,43 @@ const TextInput = props => {
     const handleOnFocus = e => {
         setFocus(true);
         if (onFocus) onFocus(e);
-    }
+    };
 
     const handleOnBlur = e => {
         setFocus(false);
         if (onBlur) onBlur(e);
-    }
+    };
 
-    const containerClassList = [styles.container];
-    if (!valueChanged && errorMessage) containerClassList.push(styles.error);
+    let containerClass = styles.container;
+    if (multiline) containerClass += ' ' + styles.multiline;
+    if (!valueChanged && errorMessage) containerClass += ' ' + styles.error;
 
-    const labelClassList = [styles.placeholder];
-    if (value || focus) labelClassList.push(styles.placeholderActive);
-    if (focus) labelClassList.push(styles.placeholderFocus);
+    let labelClass = styles.placeholder;
+    if (value || focus) labelClass += ' ' + styles.placeholderFocus;
 
     let inputElement;
+    const elementProps = {
+        id,
+        value,
+        spellCheck,
+        onFocus: handleOnFocus,
+        onBlur: handleOnBlur,
+        onChange: handleOnChange,
+        ...inputProps
+    };
 
     if (multiline) {
-        inputElement = <textarea
-            id={id}
-            type="text"
-            value={value}
-            onFocus={handleOnFocus}
-            onBlur={handleOnBlur}
-            onChange={handleOnChange}
-            spellCheck={spellcheck}
-            {...inputProps}
-        >
-        </textarea>;
+        inputElement = <textarea {...elementProps}></textarea>;
     } else {
-        inputElement = <input
-            id={id}
-            type="text"
-            value={value}
-            onFocus={handleOnFocus}
-            onBlur={handleOnBlur}
-            onChange={handleOnChange}
-            spellCheck={spellcheck}
-            {...inputProps}
-        />
+        inputElement = <input {...elementProps} type={props.type || 'text'} />;
     }
 
     return (
-        <div className={containerClassList.join(' ')}>
+        <div className={containerClass}>
             <div className={styles.wrapper}>
-                { inputElement }
-                <label htmlFor={id} className={labelClassList.join(' ')}>
-                    { placeholder }
+                {inputElement}
+                <label htmlFor={id} className={labelClass}>
+                    {placeholder}
                 </label>
             </div>
             {!valueChanged && errorMessage &&

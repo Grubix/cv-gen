@@ -7,10 +7,12 @@ input:-webkit-autofill,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover
 textarea:-webkit-autofill:focus {
-    transition: background-color 9999s !important;
+    transition: background-color 3600s !important;
 }
 
 .container {
+    $base-height: 40px;
+
     @include flex(stretch);
     flex-direction: column;
     position: relative;
@@ -20,7 +22,7 @@ textarea:-webkit-autofill:focus {
         position: relative;
         font-family: inherit;
         font-size: inherit;
-        height: 40px;
+        height: $base-height;
         border-radius: 4px;
         border: 2px solid #E5E8EC;
         padding: 8px 10px 8px 10px;
@@ -31,9 +33,9 @@ textarea:-webkit-autofill:focus {
 
     textarea {
         float: left;
-        height: 3 * 40px;
-        min-height: 2 * 40px;
-        transition: all 200ms cubic-bezier(0.0, 0, 0.2, 1), width 0s, height 0s;
+        height: 3 * $base-height;
+        min-height: 2 * $base-height;
+        transition: all .15s, width 0s, height 0s;
     }
 
     input, textarea {
@@ -44,12 +46,12 @@ textarea:-webkit-autofill:focus {
         }
     }
 
-    textarea + .placeholder {
+    &.multiline .placeholder {
         transform: none;
         top: 8px;
     }
 
-    textarea + .placeholderActive {
+    &.multiline .placeholderFocus {
         top: 0;
         transform: translateY(-50%);
     }
@@ -78,22 +80,19 @@ textarea:-webkit-autofill:focus {
     transform: translateY(-50%);
     user-select: none;
     color: #949799;
-    transition: all .2s;
     box-shadow: 0px 0px 2px 1px #fff;
-}
+    transition: all .15s;
+    -webkit-font-smoothing: antialiased;
 
-.placeholderActive {
-    font-size: 11.5px;
-    color: $color-secondary;
-    font-weight: 500;
-    background-color: #fff;
-    left: 7px;
-    top: 0px !important;
-    z-index: 2;
-}
-
-.placeholderFocus {
-    //TODO:
+    &.placeholderFocus {
+        font-size: 11.5px;
+        color: $color-secondary;
+        font-weight: 500;
+        background-color: #fff;
+        left: 7px;
+        top: 0px !important;
+        z-index: 2;
+    }
 }
 
 .errorLabel {
