@@ -1,7 +1,11 @@
-import buttons from '@components/Button/Button.scss?module';
+import { ButtonDark, ButtonLight } from '@components/Button/Button';
 import React, { Fragment, useState } from 'react';
 import BaseData from './BaseData';
+import EducationHistory from './EducationHistory';
+import EmploymentHistory from './EmploymentHistory';
 import styles from './Generator.scss?module';
+import Interests from './Interests';
+import Skills from './Skills';
 
 const Generator = ({ setToken }) => {
     const [baseDataFields, setBaseDataFields] = useState({
@@ -26,52 +30,33 @@ const Generator = ({ setToken }) => {
     return (
         <Fragment>
             <main className={styles.main}>
-                <nav className={styles.main__topnav}>
-                    <div className={styles.topnav__user}>
-                        <span>{ baseDataFields['firstname'] + ' ' + baseDataFields['lastname'] }</span>
-                    </div>
-                    <div className={styles.topnav__buttons}>
-                        <button type="button" className={buttons.buttonLight} onClick={() => setToken(false)}>log out</button>
-                        <button type="button" className={buttons.buttonLight}>save</button>
-                        <button type="submit" className={buttons.buttonDark}>generate CV</button>
-                    </div>
-                </nav>
-                <BaseData {...baseDataFields} onDataChange={handleBaseDataChange}/>
-                <div className={styles.data_group}>
-                    <div className={styles.header}>Skills</div>
-                    <div id="js-skills"></div>
-                    <div className={styles.row}>
-                        <button type="button" className={buttons.buttonLight}>add</button>
-                    </div>
+                <div className={styles.test1}></div>
+                <div className={styles.test2}></div>
+                <div className={styles.wrapper}>
+                    <nav className={styles.main__topnav}>
+                        <div className={styles.topnav__user}>
+                            <span>{ baseDataFields['firstname'] + ' ' + baseDataFields['lastname'] }</span>
+                        </div>
+                        <div className={styles.topnav__buttons}>
+                            <ButtonLight onClick={() => setToken(false)}>Log out</ButtonLight>
+                            <ButtonLight>Save</ButtonLight>
+                            <ButtonDark type="submit">Generate CV</ButtonDark>
+                        </div>
+                    </nav>
+                    <BaseData {...baseDataFields} onDataChange={handleBaseDataChange}/>
+                    <Skills></Skills>
+                    <Interests></Interests>
+                    <EmploymentHistory></EmploymentHistory>
+                    <EducationHistory></EducationHistory>
                 </div>
-                <div className={styles.data_group}>
-                    <div className={styles.header}>Interests</div>
-                    <div id="js-interests"></div>
-                    <div className={styles.row}>
-                        <button type="button" className={buttons.buttonLight}>add</button>
-                    </div>
-                </div>
-                <div className={styles.data_group}>
-                    <div className={styles.header}>Employment history</div>
-                    <div id="js-employment-history"></div>
-                    <div className={styles.row}>
-                        <button type="button" className={buttons.buttonLight}>add</button>
-                    </div>
-                </div>
-                <div className={styles.data_group}>
-                    <div className={styles.header}>Education history</div>
-                    <div id="js-education-history"></div>
-                    <div className={styles.row}>
-                        <button type="button" className={buttons.buttonLight}>add</button>
-                    </div>
-                </div>
-                <div className="main__loading-overlay" id="js-loading-overlay">
+                <div className="main__loading-overlay">
                     <div className="loader"></div>
                 </div>
-
             </main>
             <div className={styles.banner}>
-                <b>CV Generator</b>&nbsp;by&nbsp;<a href="https://github.com/Grubix" className="link" target="_blank">kborowicz</a>
+                <b>CV Generator</b>
+                &nbsp;by&nbsp;
+                <a href="https://github.com/kborowicz" className={styles.link} target="_blank">kborowicz</a>
             </div>
         </Fragment>
     );

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Auth.scss?module';
-import buttons from '@components/Button/Button.scss?module';
 import TextField from '@components/TextInput/TextInput';
+import {ButtonLight, ButtonDark} from '@components/Button/Button';
 
-const Login = ({ setToken }) => {
+const Auth = ({ setToken }) => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
@@ -32,8 +32,8 @@ const Login = ({ setToken }) => {
                         />
                     </div>
                     <div className={styles.rowSubmit}>
-                        <button type="button" className={buttons.buttonLight}>sign up</button>
-                        <button type="submit" className={buttons.buttonDark}>log in</button>
+                        <ButtonLight>Sign up</ButtonLight>
+                        <ButtonDark>Log in</ButtonDark>
                     </div>
                 </form>
             </div>
@@ -41,4 +41,4 @@ const Login = ({ setToken }) => {
     );
 };
 
-export default Login;
+export default Auth;
