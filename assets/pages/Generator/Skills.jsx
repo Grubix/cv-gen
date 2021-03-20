@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ButtonLight, ButtonDark } from '@components/Button/Button';
+import { ButtonLight, ButtonDark } from '@/components/Button/Button';
 import styles from './Generator.scss?module';
 
 const Skills = () => {

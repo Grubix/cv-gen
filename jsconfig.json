@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      //"checkJs": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "allowSyntheticDefaultImports": true,
+      "forceConsistentCasingInFileNames": true,
+      "jsx": "react",
+      "watch": true,
+      "target": "es2017",
+      "baseUrl": "./",
+      "paths": {
+        "@/*": ["./assets/*"],
+      },
+      
+    },
+    "include": [
+      "./**/*.js",
+      "./**/*.jsx",
+      "./**/*.scss"
+    ],
+    "exclude": [
+      "node_modules"
+    ],
+  }

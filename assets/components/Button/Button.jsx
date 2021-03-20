@@ -7,6 +7,7 @@ const Button = ({children, appearance, className, ...props}) => {
 
     return (
         <button
+            type="button"
             className={buttonClass}
             {...props}
         >

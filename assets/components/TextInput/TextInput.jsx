@@ -43,7 +43,7 @@ const TextInput = props => {
     let inputElement;
     const elementProps = {
         id,
-        value,
+        value: value || '',
         spellCheck,
         onFocus: handleOnFocus,
         onBlur: handleOnBlur,

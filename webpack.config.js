@@ -43,10 +43,7 @@ Encore
     })
 
     .addAliases({
-        '@': path.resolve(__dirname, 'assets'),
-        '@scss': path.resolve(__dirname, 'assets/scss'),
-        '@components': path.resolve(__dirname, 'assets/components'),
-        '@pages': path.resolve(__dirname, 'assets/pages'),
+        '@': path.resolve(__dirname, 'assets')
     })
 ;
 

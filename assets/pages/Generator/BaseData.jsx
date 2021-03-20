@@ -1,5 +1,5 @@
 import React from 'react';
-import TextInput from '@components/TextInput/TextInput';
+import TextInput from '@/components/TextInput/TextInput';
 import styles from './Generator.scss?module';
 import xd from './xd.jpg';
 
